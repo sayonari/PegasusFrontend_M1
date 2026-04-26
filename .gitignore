@@ -13,3 +13,6 @@ dist-ssr
 .idea
 .DS_Store
 .env
+
+# Upstream sources (cloned, not part of this meta-repo)
+/pegasus-frontend/

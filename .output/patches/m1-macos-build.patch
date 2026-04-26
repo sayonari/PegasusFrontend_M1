@@ -1,0 +1,63 @@
+diff --git a/src/app/app.pro b/src/app/app.pro
+index a5fa5eea..c1b1b51a 100644
+--- a/src/app/app.pro
++++ b/src/app/app.pro
+@@ -1,5 +1,5 @@
+ TARGET = pegasus-fe
+-CONFIG += c++11 warn_on exceptions_off rtti_off
++CONFIG += c++17 warn_on exceptions_off rtti_off
+ 
+ SOURCES += main.cpp
+ DEFINES *= $${COMMON_DEFINES}
+diff --git a/src/backend/backend.pro b/src/backend/backend.pro
+index fd5fbf22..55be3114 100644
+--- a/src/backend/backend.pro
++++ b/src/backend/backend.pro
+@@ -1,7 +1,7 @@
+ TEMPLATE = lib
+ 
+ QT += qml quick sql
+-CONFIG += c++11 staticlib warn_on exceptions_off
++CONFIG += c++17 staticlib warn_on exceptions_off
+ android: QT += androidextras
+ 
+ !isEmpty(USE_SDL_GAMEPAD)|!isEmpty(USE_SDL_POWER): include($${TOP_SRCDIR}/thirdparty/link_to_sdl.pri)
+diff --git a/src/frontend/frontend.pro b/src/frontend/frontend.pro
+index 0c9f12a1..6d021eb1 100644
+--- a/src/frontend/frontend.pro
++++ b/src/frontend/frontend.pro
+@@ -1,7 +1,7 @@
+ TEMPLATE = lib
+ 
+ QT += qml quick
+-CONFIG += c++11 staticlib warn_on exceptions_off rtti_off qtquickcompiler
++CONFIG += c++17 staticlib warn_on exceptions_off rtti_off qtquickcompiler
+ DEFINES *= $${COMMON_DEFINES}
+ 
+ RESOURCES += \
+diff --git a/src/link_to_backend.pri b/src/link_to_backend.pri
+index afb6b1ad..1392682d 100644
+--- a/src/link_to_backend.pri
++++ b/src/link_to_backend.pri
+@@ -5,6 +5,10 @@ QT *= qml quick multimedia svg sql
+ win32: LIBS += -luser32 -ladvapi32
+ macx: LIBS += -framework Cocoa
+ 
++# macOS 10.14+ removed the AGL framework. Qt 5.15 mkspec still appends it
++# via QMAKE_LIBS_OPENGL on link lines; force it back to OpenGL only.
++macx: QMAKE_LIBS_OPENGL = -framework OpenGL
++
+ 
+ # based on the auto-generated code by Qt Creator
+ 
+diff --git a/tests/qmltest_common.pri b/tests/qmltest_common.pri
+index ca4109d1..7d2f733a 100644
+--- a/tests/qmltest_common.pri
++++ b/tests/qmltest_common.pri
+@@ -1,5 +1,5 @@
+ CONFIG += qmltestcase no_testcase_installs
+-CONFIG += c++11 warn_on exceptions_off rtti_off
++CONFIG += c++17 warn_on exceptions_off rtti_off
+ 
+ QT += qml
+ 
