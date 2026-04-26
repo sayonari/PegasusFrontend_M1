@@ -10,7 +10,14 @@
 ## 優先度：低
 - [ ] サンプルテーマ／自前ROM での動作確認
 - [ ] `Pegasus.app` への ad-hoc コード署名（Gatekeeper 回避）
-- [ ] HANDOFF.md 更新
+- [ ] CI の Node.js 20 deprecation 対応（締切 2026-06-02）
+
+## 公開済み（GitHub）
+- [x] メタリポ: https://github.com/sayonari/PegasusFrontend_M1
+- [x] フォーク: https://github.com/sayonari/pegasus-frontend（master = upstream + 3 commits）
+- [x] CI（macOS arm64）緑：2 回連続成功（push 時 + tag 時）
+- [x] リリース `v0.0.2-m1` 公開：`pegasus-fe_*_macos-arm64.zip`（1.5MB、stripped）添付済み
+- [x] HANDOFF.md 更新
 
 ## 完了済み
 - [x] 初期セットアップ
