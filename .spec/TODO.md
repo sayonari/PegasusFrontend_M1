@@ -4,8 +4,8 @@
 （なし）
 
 ## 優先度：中
-- [ ] パッチを再現可能な形（`.output/patches/*.patch`）に保存
-- [ ] `compile.sh` の wrapper を作って `qmake + make` を一発化
+- [x] パッチを再現可能な形（`.output/patches/m1-macos-build.patch`）に保存
+- [x] `compile.sh` の wrapper を作って `qmake + make` を一発化（`pegasus-frontend/compile.sh`）
 
 ## 優先度：低
 - [ ] サンプルテーマ／自前ROM での動作確認
